@@ -13,3 +13,6 @@
 [submodule "homebrew"]
 	path = homebrew
 	url = https://github.com/chef-cookbooks/homebrew.git
+[submodule "ohai"]
+	path = ohai
+	url = https://github.com/chef-cookbooks/ohai.git
