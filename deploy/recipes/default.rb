@@ -8,10 +8,14 @@ secret_key = "#{app['app_source']['password']}"
 s3_data = src_url.split('/').last(2)
 
 aws_s3_file "/#{app_path}/app.jar" do
+  owner "deploy"
+  group "deploy"
+  mode "0755"
   bucket s3_data[0]
   remote_path s3_data[1]
   aws_access_key_id access_key
   aws_secret_access_key secret_key
+  action :create
 end
 
 execute "run app.jar in directory" do
