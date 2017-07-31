@@ -4,3 +4,12 @@
 [submodule "aws"]
 	path = aws
 	url = https://github.com/chef-cookbooks/aws.git
+[submodule "apt"]
+	path = apt
+	url = https://github.com/chef-cookbooks/apt.git
+[submodule "windows"]
+	path = windows
+	url = https://github.com/chef-cookbooks/windows.git
+[submodule "homebrew"]
+	path = homebrew
+	url = https://github.com/chef-cookbooks/homebrew.git
