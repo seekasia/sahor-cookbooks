@@ -1,7 +1,7 @@
 include_recipe 'aws'
 
 app = search(:aws_opsworks_app).first
-app_path = "/srv/#{app['shortname']}"
+app_path = "srv/#{app['shortname']}"
 src_url = "#{app['app_source']['url']}"
 access_key = "#{app['app_source']['user']}"
 secret_key = "#{app['app_source']['password']}"
