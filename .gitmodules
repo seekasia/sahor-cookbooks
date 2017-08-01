@@ -28,9 +28,9 @@
 [submodule "dpkg_autostart"]
 	path = dpkg_autostart
 	url = https://github.com/hw-cookbooks/dpkg_autostart
-[submodule "packagecloud-cookbook"]
-	path = packagecloud-cookbook
-	url = https://github.com/computology/packagecloud-cookbook
 [submodule "yum-epel"]
 	path = yum-epel
 	url = https://github.com/chef-cookbooks/yum-epel
+[submodule "packagecloud"]
+	path = packagecloud
+	url = https://github.com/computology/packagecloud-cookbook
