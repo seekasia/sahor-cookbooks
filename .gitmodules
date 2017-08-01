@@ -19,3 +19,9 @@
 [submodule "jenkins"]
 	path = jenkins
 	url = https://github.com/chef-cookbooks/jenkins
+[submodule "runit"]
+	path = runit
+	url = https://github.com/chef-cookbooks/runit
+[submodule "compat_resource"]
+	path = compat_resource
+	url = https://github.com/chef-cookbooks/compat_resource
