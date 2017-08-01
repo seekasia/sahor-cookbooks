@@ -25,3 +25,6 @@
 [submodule "compat_resource"]
 	path = compat_resource
 	url = https://github.com/chef-cookbooks/compat_resource
+[submodule "dpkg_autostart"]
+	path = dpkg_autostart
+	url = https://github.com/hw-cookbooks/dpkg_autostart
