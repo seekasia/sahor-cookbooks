@@ -16,3 +16,6 @@
 [submodule "ohai"]
 	path = ohai
 	url = https://github.com/chef-cookbooks/ohai.git
+[submodule "jenkins"]
+	path = jenkins
+	url = https://github.com/chef-cookbooks/jenkins
