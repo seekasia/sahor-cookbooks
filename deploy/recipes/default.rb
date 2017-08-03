@@ -5,8 +5,11 @@ app_path = "srv/#{app['shortname']}"
 src_url = "#{app['app_source']['url']}"
 access_key = "#{app['app_source']['user']}"
 secret_key = "#{app['app_source']['password']}"
-s3_data = src_url.split('/').last(2)
+s3_data = src_url.split('/').drop(3)
 
+p s3_data
+
+my_items.drop(2)
 aws_s3_file "/#{app_path}/app.jar" do
   owner "deploy"
   group "deploy"
