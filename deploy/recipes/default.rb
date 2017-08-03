@@ -12,7 +12,7 @@ aws_s3_file "/#{app_path}/app.jar" do
   group "deploy"
   mode "0755"
   bucket s3_data[0]
-  remote_path s3_data.drop(1)..join("/")
+  remote_path s3_data.drop(1).join("/")
   aws_access_key_id access_key
   aws_secret_access_key secret_key
   action :create
