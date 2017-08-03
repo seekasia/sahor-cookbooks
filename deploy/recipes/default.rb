@@ -7,7 +7,6 @@ access_key = "#{app['app_source']['user']}"
 secret_key = "#{app['app_source']['password']}"
 s3_data = src_url.split('/').drop(3)
 
-my_items.drop(2)
 aws_s3_file "/#{app_path}/app.jar" do
   owner "deploy"
   group "deploy"
