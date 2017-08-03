@@ -3,7 +3,7 @@ user "deploy" do
   shell "/bin/bash"
 end
 
-directory "/srv/sahor/" do
+directory "/srv/app/" do
   mode 0755
   owner 'root'
   group 'root'
