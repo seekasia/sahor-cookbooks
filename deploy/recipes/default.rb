@@ -7,7 +7,7 @@ access_key = "#{app['app_source']['user']}"
 secret_key = "#{app['app_source']['password']}"
 s3_data = src_url.split('/').drop(3)
 
-rds_db_instance = search("aws_opsworks_rds_db_instance").first
+rds_db_instance = search(:aws_opsworks_rds_db_instance).first
 
 p = rds_db_instance
 p app
