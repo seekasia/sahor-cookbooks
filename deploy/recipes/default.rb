@@ -17,15 +17,12 @@ arg = {
     'username' => rds_db_instance['db_user'],
     'password' => rds_db_instance['db_password'],
     'name' => app['data_sources'][0]['database_name']
-  }
+  },
+  'arg' => app['environment']
 }
 
 p arg
-
-p rds_db_instance
-p app
 p app['environment']
-
 
 aws_s3_file "/#{app_path}/app.jar" do
   owner "deploy"
