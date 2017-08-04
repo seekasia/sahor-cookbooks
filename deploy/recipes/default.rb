@@ -9,7 +9,7 @@ s3_data = src_url.split('/').drop(3)
 
 rds_db_instance = search('aws_opsworks_rds_db_instance').first
 
-arg = {
+database = {
   'database' => {
     'driver' => rds_db_instance['engine'],
     'host' => rds_db_instance['address'],
@@ -17,9 +17,10 @@ arg = {
     'username' => rds_db_instance['db_user'],
     'password' => rds_db_instance['db_password'],
     'name' => app['data_sources'][0]['database_name']
-  },
-  'arg' => app['environment']
+  }
 }
+
+arg = {'arg' => (database + app['environment'])}
 
 p arg
 p app['environment']
