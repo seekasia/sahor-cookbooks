@@ -9,7 +9,7 @@ s3_data = src_url.split('/').drop(3)
 
 rds_db_instance = search(:aws_opsworks_rds_db_instance).first
 
-p = rds_db_instance
+p rds_db_instance
 p app
 p app['environment']
 p node
