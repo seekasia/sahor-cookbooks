@@ -20,7 +20,7 @@ database = {
   }
 }
 
-arg = {'arg' => (database + app['environment'])}
+arg = {'arg' => (database.merge(app['environment']))}
 
 p arg
 p app['environment']
