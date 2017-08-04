@@ -7,6 +7,7 @@ access_key = "#{app['app_source']['user']}"
 secret_key = "#{app['app_source']['password']}"
 s3_data = src_url.split('/').drop(3)
 
+p app
 p app['environment']
 p node
 p node[:deploy]
