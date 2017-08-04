@@ -1,4 +1,5 @@
 include_recipe 'aws'
+require 'json'
 
 app = search('aws_opsworks_app').first
 app_path = "srv/#{app['shortname']}"
@@ -22,7 +23,7 @@ database = {
 
 arg = {'arg' => (database.merge(app['environment']))}
 
-p arg
+p arg.to_json
 p app['environment']
 
 aws_s3_file "/#{app_path}/app.jar" do
