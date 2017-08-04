@@ -8,7 +8,8 @@ secret_key = "#{app['app_source']['password']}"
 s3_data = src_url.split('/').drop(3)
 
 p app['environment']
-p node["deploy"]
+p node
+p node[:deploy]
 
 
 aws_s3_file "/#{app_path}/app.jar" do
