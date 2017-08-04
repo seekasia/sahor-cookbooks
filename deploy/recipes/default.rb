@@ -39,7 +39,7 @@ aws_s3_file "/#{app_path}/app.jar" do
 end
 
 execute "run app.jar in directory" do
-  command "java -jar app.jar --spring.profiles.active=#{profile} --spring.application.json=#{app_path.to_json} &"
+  command "java -jar app.jar --spring.profiles.active=#{profile} --spring.application.json=#{arg.to_json} &"
   cwd "/#{app_path}"
   action :run
 end
