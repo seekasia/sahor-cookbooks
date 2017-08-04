@@ -7,8 +7,8 @@ access_key = "#{app['app_source']['user']}"
 secret_key = "#{app['app_source']['password']}"
 s3_data = src_url.split('/').drop(3)
 
-p app['data_sources']['arn']
-rds_arn = app['data_sources']['arn'].gsub(':', '_')
+p app['data_sources'][0]['arn']
+rds_arn = app['data_sources'][0]['arn'].gsub(':', '_')
 p rds_arn
 
 rds_db_instance = search(rds_arn).first
