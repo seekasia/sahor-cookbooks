@@ -21,7 +21,7 @@ database = {
   }
 }
 
-arg = {'arg' => (database.merge())}
+arg = {'arg' => (database.merge(app['environment']))}
 profile = app['environment']['profile'] || 'stage'
 
 p profile
