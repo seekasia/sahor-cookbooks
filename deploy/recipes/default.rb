@@ -1,5 +1,5 @@
-include_recipe 'aws'
 require 'json'
+include_recipe 'aws'
 
 app = search('aws_opsworks_app').first
 app_path = "srv/#{app['shortname']}"
@@ -23,9 +23,6 @@ database = {
 
 arg = {'arg' => (database.merge(app['environment']))}
 
-p arg.to_json
-p app['environment']
-
 aws_s3_file "/#{app_path}/app.jar" do
   owner "deploy"
   group "deploy"
@@ -38,7 +35,7 @@ aws_s3_file "/#{app_path}/app.jar" do
 end
 
 execute "run app.jar in directory" do
-  command "java -jar app.jar &"
+  command "java -jar app.jar --spring.application.json=arg.to_json &"
   cwd "/#{app_path}"
   action :run
 end
