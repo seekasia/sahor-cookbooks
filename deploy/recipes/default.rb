@@ -21,8 +21,12 @@ database = {
   }
 }
 
-arg = {'arg' => (database.merge(app['environment']))}
+arg = {'arg' => (database.merge())}
+profile = app['environment']['profile'] || 'stage'
 
+p profile
+
+p "java -jar app.jar --spring.profiles.active=#{profile} --spring.application.json=#{app_path.to_json} &"
 aws_s3_file "/#{app_path}/app.jar" do
   owner "deploy"
   group "deploy"
@@ -35,7 +39,7 @@ aws_s3_file "/#{app_path}/app.jar" do
 end
 
 execute "run app.jar in directory" do
-  command "java -jar app.jar --spring.application.json=arg.to_json &"
+  command "java -jar app.jar --spring.profiles.active=#{profile} --spring.application.json=#{app_path.to_json} &"
   cwd "/#{app_path}"
   action :run
 end
