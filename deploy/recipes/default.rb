@@ -24,9 +24,6 @@ database = {
 arg = {'arg' => (database.merge(app['environment']))}
 profile = app['environment']['profile'] || 'stage'
 
-p profile
-
-p "java -jar app.jar --spring.profiles.active=#{profile} --spring.application.json=#{arg.to_json} &"
 aws_s3_file "/#{app_path}/app.jar" do
   owner "deploy"
   group "deploy"
