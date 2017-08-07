@@ -34,6 +34,6 @@
 [submodule "packagecloud"]
 	path = packagecloud
 	url = https://github.com/computology/packagecloud-cookbook
-[submodule "timezone-ii"]
-	path = timezone-ii
-	url = https://github.com/L2G/timezone-ii
+[submodule "timezone_iii"]
+	path = timezone_iii
+	url = https://github.com/Stromweld/timezone_iii
