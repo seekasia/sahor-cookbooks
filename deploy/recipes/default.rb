@@ -34,13 +34,13 @@ aws_s3_file "/#{app_path}/app.jar" do
   aws_secret_access_key secret_key
   action :create
 end
- 
- execute "run app.jar in directory" do
-   user "deploy"
-   cwd "/#{app_path}"
-   command "java -jar app.jar --spring.profiles.active=#{profile} --spring.application.json='#{arg.to_json}' &"
-   action :run
- end
+
+execute "start application" do
+  user "deploy"
+  cwd "/#{app_path}"
+  command "java -jar app.jar --spring.profiles.active=#{profile} --spring.application.json='#{arg.to_json}' &"
+  action :run
+end
   
 Chef::Log.info("********** The app's URL is '#{src_url}' **********")
 Chef::Log.info("********** The app's path is '#{app_path}' **********")
