@@ -8,10 +8,12 @@ access_key = "#{app['app_source']['user']}"
 secret_key = "#{app['app_source']['password']}"
 s3_data = src_url.split('/').drop(3)
 
-rds_db_instance = search('aws_opsworks_rds_db_instance').first
+database = {}
 
-database = {
-  'database' => {
+if app['data_sources'][0]['type'] == "RdsDbInstance"
+  rds_db_instance = search('aws_opsworks_rds_db_instance').first
+  
+  database['database'] = {
     'driver' => rds_db_instance['engine'],
     'host' => rds_db_instance['address'],
     'port' => rds_db_instance['port'],
@@ -19,7 +21,7 @@ database = {
     'password' => rds_db_instance['db_password'],
     'name' => app['data_sources'][0]['database_name']
   }
-}
+end
 
 arg = {'arg' => (database.merge(app['environment']))}
 profile = app['environment']['profile'] || 'stage'
@@ -37,13 +39,13 @@ end
 
 execute "start application" do
   user "deploy"
+  group "deploy"
   cwd "/#{app_path}"
   command "java -jar app.jar --spring.profiles.active=#{profile} --spring.application.json='#{arg.to_json}' &"
   action :run
 end
-  
+
 Chef::Log.info("********** The app's URL is '#{src_url}' **********")
 Chef::Log.info("********** The app's path is '#{app_path}' **********")
 Chef::Log.info("********** The app's s3 data is '#{s3_data}' **********")
-Chef::Log.info("********** The app's secret key is '#{secret_key}' **********")
 Chef::Log.info("********** The app's access key is '#{access_key}' **********")
