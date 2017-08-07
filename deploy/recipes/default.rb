@@ -27,8 +27,8 @@ if datasource['type'] == "RdsDbInstance"
   }
 end
 
-app['environment']['log_path'] = paths['log']
 arg = {'arg' => (database.merge(app['environment']))}
+arg['arg']['log_path'] = paths['log']
 profile = app['environment']['profile'] || 'stage'
 
 aws_s3_file "#{paths['app']}/app.jar" do
