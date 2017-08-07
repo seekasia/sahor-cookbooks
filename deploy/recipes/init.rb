@@ -3,7 +3,10 @@ user "deploy" do
   shell "/bin/bash"
 end
 
-directory "/srv/app/" do
+app = search('aws_opsworks_app').first
+app_path = "srv/www/#{app['shortname']}"
+
+directory "/#{app_path}" do
   mode 0755
   owner 'root'
   group 'root'

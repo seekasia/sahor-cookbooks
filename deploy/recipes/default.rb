@@ -2,7 +2,7 @@ require 'json'
 include_recipe 'aws'
 
 app = search('aws_opsworks_app').first
-app_path = "srv/#{app['shortname']}"
+app_path = "srv/www/#{app['shortname']}"
 src_url = "#{app['app_source']['url']}"
 access_key = "#{app['app_source']['user']}"
 secret_key = "#{app['app_source']['password']}"
@@ -35,12 +35,13 @@ aws_s3_file "/#{app_path}/app.jar" do
   action :create
 end
 
-execute "run app.jar in directory" do
-  command "./app.jar restart --spring.profiles.active=#{profile} --spring.application.json='#{arg.to_json}' &"
+execute "start application" do
+  user "deploy"
   cwd "/#{app_path}"
+  command "java -jar app.jar --spring.profiles.active=#{profile} --spring.application.json='#{arg.to_json}' &"
   action :run
 end
-
+  
 Chef::Log.info("********** The app's URL is '#{src_url}' **********")
 Chef::Log.info("********** The app's path is '#{app_path}' **********")
 Chef::Log.info("********** The app's s3 data is '#{s3_data}' **********")
