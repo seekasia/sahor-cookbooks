@@ -40,3 +40,9 @@
 [submodule "system"]
 	path = system
 	url = https://github.com/xhost-cookbooks/system
+[submodule "cron"]
+	path = cron
+	url = https://github.com/chef-cookbooks/cron
+[submodule "hostsfile"]
+	path = hostsfile
+	url = https://github.com/customink-webops/hostsfile
