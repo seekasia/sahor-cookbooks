@@ -37,3 +37,18 @@
 [submodule "timezone_iii"]
 	path = timezone_iii
 	url = https://github.com/Stromweld/timezone_iii
+[submodule "maven"]
+	path = maven
+	url = https://github.com/chef-cookbooks/maven
+[submodule "ark"]
+	path = ark
+	url = https://github.com/chef-cookbooks/ark
+[submodule "build-essential"]
+	path = build-essential
+	url = https://github.com/chef-cookbooks/build-essential
+[submodule "seven_zip"]
+	path = seven_zip
+	url = https://github.com/windowschefcookbooks/seven_zip
+[submodule "mingw"]
+	path = mingw
+	url = https://github.com/chef-cookbooks/mingw
