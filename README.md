@@ -1,7 +1,8 @@
 ## Softwares/ Tools
-
+** (Avoid changing code in submodules - forked repo) **
  - Jenkins
- ** (Avoid changing code in submodules - forked repo) **
+ - Sahor Stack
+ 
 
 ## Security groups
 
@@ -36,21 +37,48 @@ IAM roles are very important. Using this roles we give the automation a restrict
 
 Policy name: `OpsWorksElasticsearchEC2Discovery`
 
-
-### Layers
+## OpsWorks
+### 1. Jenkins
+#### Layers
 
 - Master (Jenkins)
 
-
-#### Layer recipes configuration
-
-- Chef cookbooks
-- One master wrapper cookbook
-- All the necessary dependencies in one repo 
-- Cookbook folder `es-elk` will have more documentation on recipes and dependencies
-- For our ELK implementation we can run below recipes for each of the layers.
-
-
-### Instances
+#### Instances
 
 - For Jenkins, kindly use at least T2 Small instance type. 
+
+### 2. Sahor Stack
+#### Configuration
+```
+{  
+   "java":{  
+      "install_flavor":"oracle",
+      "jdk_version":"8",
+      "oracle":{  
+         "accept_oracle_download_terms":true
+      }
+   },
+   "timezone_iii":{  
+      "timezone":"Asia/Singapore"
+   },
+   "deploy":{  
+      "user":"sahor",
+      "group":"sahor",
+      "path":{  
+         "app":"/srv/www/sahor",
+         "log":"/mnt/logs"
+      }
+   }
+}
+```
+
+#### Layers
+##### Java
+###### Setup
+```
+timezone_iii::amazon, java::default, deploy::init
+```
+###### Configure
+```
+deploy::shutdown, deploy::default
+```
