@@ -1,4 +1,6 @@
 ## Softwares/ Tools
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fseekasia%2Fsahor-cookbooks.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fseekasia%2Fsahor-cookbooks?ref=badge_shield)
+
 ** (Avoid changing code in submodules - forked repo) **
  - Jenkins
  - Sahor Stack
@@ -82,3 +84,7 @@ timezone_iii::amazon, java::default, deploy::init
 ```
 deploy::shutdown, deploy::default
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fseekasia%2Fsahor-cookbooks.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fseekasia%2Fsahor-cookbooks?ref=badge_large)
